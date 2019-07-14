@@ -33,13 +33,6 @@
           <input type="checkbox" id="remove-duplicates" />
           <label for="remove-duplicates">Remove duplicates</label>
         </div>
-        <div class="select-line">
-          <input type="checkbox" id="ignore-characters" />
-          <label for="ignore-characters">Remove first
-            <input type="text" maxlength="1" placeholder="0-9" name="ignore-characters-input"
-              id="ignore-characters-input" />
-            characters</label>
-        </div>
       </div>
       <div class="radio-selector" id="display-by">
         <b>Display converted list as:</b>
@@ -66,7 +59,7 @@
       <div class="radio-selector" id="sort-order">
         <b>Sort list:</b>
         <div class="select-line">
-          <input type="radio" name="sort-order" value="increasing-order" checked onclick="listSort()" />
+          <input type="radio" name="sort-order" value="increasing-order" onclick="listSort()" />
           <label for="increasing-order">Increasing order (A - Z, 0 - 9)</label>
         </div>
         <div class="select-line">
