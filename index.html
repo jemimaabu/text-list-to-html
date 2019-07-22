@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="description" content="This web app converts lists in text format to a specified HTML tag" />
   <link rel="stylesheet" href="style.css" />
   <title>Text List to HTML</title>
 </head>
@@ -17,15 +18,15 @@
       <div class="radio-selector" id="separate-by">
         <b>List is separated by:</b>
         <div class="select-line">
-          <input type="radio" name="separate-by" value="separate-new-lines" checked onclick="listConvert()" />
+          <input type="radio" name="separate-by" value="separate-new-lines" checked onclick="convertList()" />
           <label for="new-lines">New lines</label>
         </div>
         <div class="select-line">
-          <input type="radio" name="separate-by" value="separate-commas" onclick="listConvert()" />
+          <input type="radio" name="separate-by" value="separate-commas" onclick="convertList()" />
           <label for="commas">Commas (,)</label>
         </div>
         <div class="select-line">
-          <input type="radio" name="separate-by" value="separate-custom" onclick="listConvert()" />
+          <input type="radio" name="separate-by" value="separate-custom" />
           <label for="separate-custom">Custom: </label>
           <input type="text" placeholder="e.g. |" name="separate-custom-input" id="separate-custom-input" />
         </div>
@@ -37,39 +38,39 @@
       <div class="radio-selector" id="display-by">
         <b>Display converted list as:</b>
         <div class="select-line">
-          <input type="radio" name="display-as" value="html-list" checked onclick="listConvert()" />
+          <input type="radio" name="display-as" value="html-list" checked onclick="convertList()" />
           <label for="html-list">HTML List <br><small><xmp><li>item</li></xmp></small></label>
         </div>
         <div class="select-line">
-          <input type="radio" name="display-as" value="html-select" onclick="listConvert()" />
+          <input type="radio" name="display-as" value="html-select" onclick="convertList()" />
           <label for="html-select">HTML Select<br><small><xmp><select><option>item1</option></select></xmp></small></label>
         </div>
         <div class="select-line">
-          <input type="radio" name="display-as" value="html-select" onclick="listConvert()" />
-          <label for="html-select">Custom Tag: <input type="text" name="custom-tag" id="custom-tag" placeholder="tag"><br><small><xmp><tag>item1</tag></xmp></small></label>
+          <input type="radio" name="display-as" value="html-custom"/>
+          <label for="html-custom">Custom Tag: 
+          <input type="text" name="custom-tag" id="custom-tag" placeholder="tag"><br><small><xmp><tag>item1</tag></xmp></small></label>
           
         </div>
       </div>
       <div class="radio-selector" id="value-options">
-        <b>Select option value format:</b>
+        <b>Value format:</b>
         <div class="select-line">
-          <input type="radio" name="value-format" value="first-word" checked onclick="listConvert()" />
-          <label for="alphabetically">First word only<br><small><xmp><option value="sample">Sample option</option></xmp></small></label>
+          <input type="radio" name="value-format" value="no-value" checked onclick="convertList()" />
+          <label for="no-value">No value<br><small><xmp><tag>Sample item</tag></xmp></small></label>
         </div>
         <div class="select-line">
-          <input type="radio" name="value-format" value="camel-case" onclick="listConvert()" />
-          <label for="numerically">Camel case<br><small><xmp><option value="sampleOption">Sample option</option></xmp></small></label>
-        </div>
-      </div>
-      <div class="radio-selector" id="sort-order">
-        <b>Sort list:</b>
-        <div class="select-line">
-          <input type="radio" name="sort-order" value="increasing-order" onclick="listConvert()" />
-          <label for="increasing-order">Increasing order (A - Z, 0 - 9)</label>
+          <input type="radio" name="value-format" value="first-word" onclick="convertList()" />
+          <label for="first-word">First word only<br><small><xmp><tag value="sample">Sample item</tag></xmp></small></label>
         </div>
         <div class="select-line">
-          <input type="radio" name="sort-order" value="decreasing-order" onclick="listConvert()" />
-          <label for="decreasing-order">Decreasing order (Z - A, 9 - 0)</label>
+          <input type="radio" name="value-format" value="camel-case" onclick="convertList()" />
+          <label for="camel-case">Camel case<br><small><xmp><tag value="sampleItem">Sample item</tag></xmp></small></label>
+        </div>
+        <div class="select-line">
+          <input type="radio" name="value-format" value="join-using" />
+          <label for="join-using">Join Using: 
+          <input type="text" name="custom-join" id="custom-join" placeholder="-"><br>
+          <small><xmp><tag value="sample-item">Sample item</tag></xmp></small></label>
         </div>
       </div>
     </div>
@@ -80,7 +81,7 @@
         <button onclick="convertList()">Convert List</button>
       </div>
       <div id="converted-text">
-        <textarea name="dropdown-input" id="dropdown-input" placeholder="Converted list shows up here" readonly></textarea>
+        <textarea name="convert-input" id="convert-input" placeholder="Converted list shows up here" readonly></textarea>
       </div>
       </div>
     </div>

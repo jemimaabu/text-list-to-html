@@ -10,12 +10,41 @@
  * Optional checkbox:
  * Remove special characters
  */
+
+function seperateMethod() {
+  var radioButtons = document.querySelector('input[name="separate-by"]:checked').value;
+  switch(radioButtons) {
+    case "separate-new-lines":
+      return /\n/g;
+    case "separate-commas":
+      return ","
+    case "separate-custom":
+      return document.getElementById("separate-custom-input").value;
+  }
+}
+
+function displayAs() {
+  var radioButtons = document.querySelector('input[name="display-as"]:checked').value;
+  switch(radioButtons) {
+    case "html-list":
+      return "li";
+    case "html-select":
+      return "option"
+    case "html-custom":
+      return document.getElementById("custom-tag").value;
+  }
+}
+
 function convertList() {
   var textInput = document.getElementById("text-input").value.trim();
-  var dropdownInput = document.getElementById("dropdown-input");
-  var textArray = textInput.split(/\n/g);
+  var convertInput = document.getElementById("convert-input");
 
-	var optionsArray = textArray.map(function(item) {return `<option value="${item.toLowerCase().split(" ").join("-")}">${item}</option>`});
+  var seperator = seperateMethod();
+  var textArray = textInput.split(seperator);
+
+  var tag = displayAs();
+
+	var convertArray = textArray.map(item => `<${tag} value="${item.trim().toLowerCase().split(" ").join("-")}">${item.trim()}</${tag}>`);
   
-  dropdownInput.value = `<select>\n${optionsArray.join("\n")}</select>`  
+  convertInput.value = tag == "option" ? `<select>\n  ${convertArray.join("\n  ")}\n</select>` : convertArray.join("\n")
 }
