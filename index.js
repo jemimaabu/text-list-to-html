@@ -42,6 +42,8 @@ function convertList() {
   var seperator = seperateMethod();
   var textArray = textInput.split(seperator);
 
+  textArray = document.getElementById("remove-duplicates").checked ? [...new Set(textArray)] : textArray
+
   var tag = displayAs();
 
 	var convertArray = textArray.map(item => `<${tag} value="${item.trim().toLowerCase().split(" ").join("-")}">${item.trim()}</${tag}>`);
