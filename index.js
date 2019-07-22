@@ -59,3 +59,11 @@ function convertList() {
   
   convertInput.value = tag == "option" ? `<select>\n  ${convertArray.join("\n  ")}\n</select>` : convertArray.join("\n")
 }
+
+function copyConvertedList() {
+  var convertInput = document.getElementById("convert-input");
+  convertInput.select();
+  if(document.execCommand("copy")){
+      alert("Copied to clipboard.");
+  };
+}
