@@ -22,7 +22,7 @@ main h1 {
 	border: 1px solid #5a5a5a;
 	background-color: #f7f7f7;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
 	margin-bottom: 1em;
 }
 
@@ -78,7 +78,7 @@ xmp {
 
 	#converter-controls {
 		display: grid;
-		grid-template-rows: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
 		grid-template-columns: 1fr;
 		width: 25%;
 		float: left;
@@ -115,12 +115,13 @@ xmp {
 		border:none
 	}
 
-	.radio-selector:nth-child(2n) {
+	.radio-selector:nth-child(2) {
 		border-left: 1px solid #5a5a5a
 	}
 
-	.radio-selector:nth-last-of-type(-n+2) {
-		border-top: 1px solid #5a5a5a
+	.radio-selector:last-of-type {
+		border-top: 1px solid #5a5a5a;
+		grid-column: span 2;
 	}
 
 	#convert-area {
