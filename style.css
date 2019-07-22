@@ -28,7 +28,8 @@ main h1 {
 
 .radio-selector {
   padding: 1em;
-  width: 100%;
+	width: 100%;
+	overflow: hidden;
 }
 
 .radio-selector + .radio-selector {
@@ -41,6 +42,7 @@ main h1 {
 
 input[type="text"] {
 	padding: 0 0.5em;
+	width: 100%;
 }
 
 xmp {
