@@ -39,26 +39,14 @@ main h1 {
 	margin-top: 0.5em;
 }
 
-.radio-selector input[type="text"] {
-	width: 2em;
+input[type="text"] {
+	padding: 0 0.5em;
 }
 
 xmp {
   white-space: pre-wrap;
   word-break: break-word;
 }
-
-@keyframes octocat-wave {
-	0%, 100% {
-		transform:rotate(0)
-	}
-	20%, 60% {
-		transform:rotate(-25deg)
-	}
-	40%, 80% {
-		transform:rotate(10deg)
-	}
-} 
 
 #convert-area button {
   margin: 1em 1em 1em 0em;
@@ -139,3 +127,15 @@ xmp {
 		width: 100%;
 	}
 }
+
+@keyframes octocat-wave {
+	0%, 100% {
+		transform:rotate(0)
+	}
+	20%, 60% {
+		transform:rotate(-25deg)
+	}
+	40%, 80% {
+		transform:rotate(10deg)
+	}
+} 

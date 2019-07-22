@@ -17,17 +17,17 @@
       <div class="radio-selector" id="separate-by">
         <b>List is separated by:</b>
         <div class="select-line">
-          <input type="radio" name="separate-by" value="separate-new-lines" checked onclick="listSort()" />
+          <input type="radio" name="separate-by" value="separate-new-lines" checked onclick="listConvert()" />
           <label for="new-lines">New lines</label>
         </div>
         <div class="select-line">
-          <input type="radio" name="separate-by" value="separate-commas" onclick="listSort()" />
+          <input type="radio" name="separate-by" value="separate-commas" onclick="listConvert()" />
           <label for="commas">Commas (,)</label>
         </div>
         <div class="select-line">
-          <input type="radio" name="separate-by" value="separate-custom" onclick="listSort()" />
+          <input type="radio" name="separate-by" value="separate-custom" onclick="listConvert()" />
           <label for="separate-custom">Custom: </label>
-          <input type="text" placeholder="," name="separate-custom-input" id="separate-custom-input" />
+          <input type="text" placeholder="e.g. |" name="separate-custom-input" id="separate-custom-input" />
         </div>
         <div class="select-line">
           <input type="checkbox" id="remove-duplicates" />
@@ -37,33 +37,38 @@
       <div class="radio-selector" id="display-by">
         <b>Display converted list as:</b>
         <div class="select-line">
-          <input type="radio" name="display-as" value="html-list" checked onclick="listSort()" />
+          <input type="radio" name="display-as" value="html-list" checked onclick="listConvert()" />
           <label for="html-list">HTML List <br><small><xmp><li>item</li></xmp></small></label>
         </div>
         <div class="select-line">
-          <input type="radio" name="display-as" value="html-select" onclick="listSort()" />
+          <input type="radio" name="display-as" value="html-select" onclick="listConvert()" />
           <label for="html-select">HTML Select<br><small><xmp><select><option>item1</option></select></xmp></small></label>
+        </div>
+        <div class="select-line">
+          <input type="radio" name="display-as" value="html-select" onclick="listConvert()" />
+          <label for="html-select">Custom Tag: <input type="text" name="custom-tag" id="custom-tag" placeholder="tag"><br><small><xmp><tag>item1</tag></xmp></small></label>
+          
         </div>
       </div>
       <div class="radio-selector" id="value-options">
         <b>Select option value format:</b>
         <div class="select-line">
-          <input type="radio" name="value-format" value="first-word" checked onclick="listSort()" />
+          <input type="radio" name="value-format" value="first-word" checked onclick="listConvert()" />
           <label for="alphabetically">First word only<br><small><xmp><option value="sample">Sample option</option></xmp></small></label>
         </div>
         <div class="select-line">
-          <input type="radio" name="value-format" value="camel-case" onclick="listSort()" />
+          <input type="radio" name="value-format" value="camel-case" onclick="listConvert()" />
           <label for="numerically">Camel case<br><small><xmp><option value="sampleOption">Sample option</option></xmp></small></label>
         </div>
       </div>
       <div class="radio-selector" id="sort-order">
         <b>Sort list:</b>
         <div class="select-line">
-          <input type="radio" name="sort-order" value="increasing-order" onclick="listSort()" />
+          <input type="radio" name="sort-order" value="increasing-order" onclick="listConvert()" />
           <label for="increasing-order">Increasing order (A - Z, 0 - 9)</label>
         </div>
         <div class="select-line">
-          <input type="radio" name="sort-order" value="decreasing-order" onclick="listSort()" />
+          <input type="radio" name="sort-order" value="decreasing-order" onclick="listConvert()" />
           <label for="decreasing-order">Decreasing order (Z - A, 9 - 0)</label>
         </div>
       </div>
