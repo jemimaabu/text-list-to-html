@@ -39,7 +39,7 @@ function getValue() {
   var radioButtons = document.querySelector('input[name="value-format"]:checked').value;
   switch(radioButtons) {
     case "no-value":
-      return;
+      return "none";
     case "first-word":
       return "first"
     case "camel-case":
@@ -64,7 +64,7 @@ function convertList() {
 
   var convertArray;
 
-  if (!value) {
+  if (value == "none") {
     convertArray = textArray.map(item => `<${tag}>${item.trim()}</${tag}>`);
   } else if (value=="first") {
     convertArray = textArray.map(item => `<${tag} value="${item.trim().toLowerCase().split(" ")[0]}">${item.trim()}</${tag}>`)
